@@ -1,0 +1,42 @@
+.add{
+	color: var(--text-color);
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	.circle{
+		margin-top: 3px;
+		cursor: pointer;
+		width: 30px;
+		height: 30px;
+		border: 2px solid var(--text-color);
+		border-radius: 50%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		span:first-child{
+			border-top: 3px solid var(--text-color);
+			width: 20px;
+			transform:translateY(1px);
+			 
+		}
+		span:last-child{
+			border-top: 3px solid var(--text-color);
+			width: 20px;
+			transform: translateY(-2px) rotate(90deg);
+		}
+		&:hover{
+			background: var(--color-additional);
+			transform: scale(1.1);
+		}
+		&:active{
+			background: var(--color-additional7);
+		}
+	}
+}
+.container{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}

@@ -24,7 +24,9 @@ export const Layout = () => {
 					<Theme />
 				</div>
 			</div>
-			<Outlet />
+			<div className={styles.content}>
+				<Outlet />
+			</div>
 		</div>
 	)
 }

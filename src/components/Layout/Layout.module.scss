@@ -6,8 +6,7 @@
 	width: 90vw;
 	margin-left: auto;
 	margin-right: auto;
-	height: 100vh;
-	overflow: auto;
+	// overflow: auto;
 	background: var(--bg-content);
 }
 
@@ -43,5 +42,11 @@
 }
 .theme{
 	margin-right: 10px;
+}
+.content{
+	position: relative;
+	height: 96vh;
+	overflow: auto;
+	min-width: 320px;
 }
 
