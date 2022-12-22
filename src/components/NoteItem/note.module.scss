@@ -1,4 +1,5 @@
 .container{
+	position: relative;
 	padding: 0;
 	margin: 5px;
 	margin-bottom: 15px;
@@ -6,6 +7,22 @@
 	border: 1px solid var(--text-color);
 	width: 95%;
 	color: var(--text-color);
+	.close{
+		cursor: pointer;
+		position: absolute;
+		right: 0;
+		border: 1px solid var(--text-color);
+		margin: 3px;
+		padding: 0 3px 1px;
+		border-radius: 3px;
+		&:hover,
+		:focus{
+			background: var(--color-additional);
+		}
+		&:active{
+			background: var(--color-additional7);
+		}
+	}
 	h3{
 		padding: 0;
 		margin: 0;
