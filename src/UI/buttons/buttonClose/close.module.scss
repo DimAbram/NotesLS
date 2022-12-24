@@ -1,0 +1,19 @@
+.close{
+		z-index: 100;
+		cursor: pointer;
+		position: absolute;
+		right: 0;
+		border: 1px solid var(--text-color);
+		margin: 3px;
+		padding: 0 3px 1px;
+		border-radius: 3px;
+		color: var(--text-color);
+		&:hover,
+		:focus{
+			background: var(--color-additional);
+		}
+		&:active{
+			background: var(--color-additional7);
+			transform: scale(0.95);
+		}
+	}

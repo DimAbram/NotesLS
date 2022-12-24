@@ -5,24 +5,9 @@
 	margin-bottom: 15px;
 	box-sizing: border-box;
 	border: 1px solid var(--text-color);
+	border-radius: 3px;
 	width: 95%;
 	color: var(--text-color);
-	.close{
-		cursor: pointer;
-		position: absolute;
-		right: 0;
-		border: 1px solid var(--text-color);
-		margin: 3px;
-		padding: 0 3px 1px;
-		border-radius: 3px;
-		&:hover,
-		:focus{
-			background: var(--color-additional);
-		}
-		&:active{
-			background: var(--color-additional7);
-		}
-	}
 	h3{
 		padding: 0;
 		margin: 0;

@@ -14,7 +14,7 @@ export const notesSlice = createSlice({
 	initialState,
 	reducers: {
 		addNote:{
-			reducer: (state, action)=> state.push(action.payload),
+			reducer: (state, action)=> [...state, action.payload],
 			prepare: (note)=>{
 				const id= nanoid()
 				const favorites=[]
