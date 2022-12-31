@@ -1,5 +1,5 @@
 import NotesPage from './NotesPage'
-import DocPage from './DocM'
+import { DocPage, DocBYPage, DocBYContentPage } from './DocM'
 import CalendarPage from './CalendarPage'
 
-export { NotesPage, DocPage, CalendarPage }
+export { NotesPage, DocPage, CalendarPage, DocBYPage, DocBYContentPage }
