@@ -1,0 +1,1 @@
+export {ContentBYPage as default} from './ContentBYPage'

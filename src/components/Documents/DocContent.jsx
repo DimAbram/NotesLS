@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid'
 
 import cn from 'classnames'
 import st from './DocContent.module.scss'
+import { Link } from 'react-router-dom'
 
 const content = boevoyUstav.capters
 
@@ -33,9 +34,16 @@ export const DocContent = () => {
 							<div key={nanoid()} className={st.capter}>
 								{capter.title}
 								{arrowsCapters[i] && (
-									<ul className={st.capter__section}>
-										{capter.sections.map(section => {
-											return <li key={nanoid()}>{section.title}</li>
+									<ul key={nanoid()} className={st.capter__section}>
+										{capter.sections.map((section, j) => {
+											let link = `/doc/BYcontent/${i}/${j}`
+											return (
+												<li key={nanoid()}>
+													<Link key={nanoid()} to={link} className={st.link}>
+														{section.title}
+													</Link>
+												</li>
+											)
 										})}
 									</ul>
 								)}

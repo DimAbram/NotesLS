@@ -1,28 +1,28 @@
-h2{
+h2 {
 	text-align: center;
 	color: var(--text-color);
 }
-i{
+i {
 	border: 1px solid var(--text-color);
 	cursor: pointer;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
 	// margin:0 10px;
-    padding: 3px;
-	&:hover{
+	padding: 3px;
+	&:hover {
 		border-color: var(--color-additional);
 	}
-	&.right{
+	&.right {
 		transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
+		-webkit-transform: rotate(-45deg);
 	}
 	&.down {
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-}
+		transform: rotate(45deg);
+		-webkit-transform: rotate(45deg);
+	}
 }
 
-.container{
+.container {
 	padding-left: 40px;
 	width: 95%;
 	display: flex;
@@ -30,10 +30,28 @@ i{
 	// align-items: center;
 	justify-content: center;
 	color: var(--text-color);
-	&__cap{
+	&__cap {
 		display: flex;
 	}
-	&__i{
+	&__i {
 		transform: translateX(-15px);
 	}
+}
+.link {
+	cursor: pointer;
+	text-decoration: none;
+	margin: 0;
+	color: var(--text-color);
+	&:hover {
+		color: var(--color-additional);
+	}
+	&:active{
+		color: var(--color-additional7);
+	}
+}
+li {
+	margin:10px 0;
+}
+.capter {
+	margin-bottom: 10px;
 }
