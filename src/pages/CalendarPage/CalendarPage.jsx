@@ -1,5 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Calendar } from '../../components'
 
 export const CalendarPage = () => {
-	return <div></div>
+	const [selectedDate, selectDate]=useState(new Date())
+
+	
+	return <Calendar selectedDate={selectedDate} selectDate={selectDate} />
 }

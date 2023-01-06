@@ -5,3 +5,11 @@
 		color: var(--text-color);
 	}
 }
+ul{
+	padding-left: 10px;
+	color: var(--text-color);
+	li{
+		// padding-left: 10px;
+		transform: translateX(30px);
+	}
+}
