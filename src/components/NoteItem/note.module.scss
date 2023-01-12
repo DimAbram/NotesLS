@@ -1,4 +1,4 @@
-.container{
+.container {
 	position: relative;
 	padding: 0;
 	margin: 5px;
@@ -8,9 +8,43 @@
 	border-radius: 3px;
 	width: 95%;
 	color: var(--text-color);
-	h3{
+	h3 {
 		padding: 0;
 		margin: 0;
 		text-align: center;
+		.link {
+			text-decoration: none;
+			color: var(--text-color);
+			&:hover {
+				color: var(--color-additional);
+			}
+			&:active {
+				color: var(--color-additional7);
+			}
+		}
+	}
+}
+.zero__favorit {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	&__link {
+		text-decoration: none;
+		color: var(--text-color);
+		&:hover {
+			color: var(--color-additional);
+		}
+		&:active {
+			color: var(--color-additional7);
+		}
+	}
+}
+.show {
+	text-align: center;
+	cursor: pointer;
+	margin-left: 15px;
+	&:hover {
+		color: var(--color-additional);
 	}
 }

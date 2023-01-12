@@ -30,6 +30,10 @@ export const Notes = () => {
 	}
 	return (
 		<div className={st.container}>
+			{notes.length===0&&
+			<div className={st.zero__element}>
+				<h3>У вас пока нет заметок</h3>
+			</div>}
 			{notes.map(note => (
 				<NoteItem
 					title={note.title}

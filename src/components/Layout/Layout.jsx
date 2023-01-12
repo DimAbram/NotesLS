@@ -36,15 +36,6 @@ export const Layout = () => {
 					>
 						Документы
 					</NavLink>
-					<NavLink
-						to='/technique'
-						className={cn(styles.menu)}
-						style={({ isActive }) => ({
-							background: isActive ? 'var(--color-additional)' : '',
-						})}
-					>
-						Техника
-					</NavLink>
 				</div>
 				<div className={styles.theme}>
 					<Theme />

@@ -8,6 +8,7 @@ import {
 	DocBYPage,
 	DocBYContentPage,
 	ContentBYPage,
+	FavoritesPage,
 } from './pages'
 
 const Root = () => {
@@ -15,6 +16,7 @@ const Root = () => {
 		<Routes>
 			<Route path='/' element={<Layout />}>
 				<Route path='notes' element={<NotesPage />} />
+				<Route path='notes/favorite/:note' element={<FavoritesPage />} />
 				<Route path='calendar' element={<CalendarPage />} />
 				<Route path='doc/' element={<DocPage />} />
 				<Route path='doc/BY' element={<DocBYPage />} />

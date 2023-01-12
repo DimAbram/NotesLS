@@ -22,7 +22,7 @@ export const useCalendar = ({ selectedDate: date }) => {
 
 	const days = useMemo(
 		() => selectedMonth.createMonthDays(),
-		[selectedMonth, selectedYear]
+		[selectedMonth]
 	)
 	const calendarDays = useMemo(() => {
 		const monthNumberOfDays = getMonthNumberOfDays(
@@ -55,7 +55,7 @@ export const useCalendar = ({ selectedDate: date }) => {
 			result[i] = nextMonthDays[i - 42 + numberOfNextDays]
 		}
 		return result
-	}, [selectedMonth.year, selectedMonth.monthIndex, selectedYear])
+	}, [selectedMonth.monthIndex, selectedYear, days])
 
 	const onClickArrow = diraction => {
 		const monthIndex =

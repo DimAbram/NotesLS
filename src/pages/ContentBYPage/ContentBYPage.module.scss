@@ -13,3 +13,28 @@ ul{
 		transform: translateX(30px);
 	}
 }
+.star{
+	margin-right: 10px;
+	height: 20px;
+	width: 20px;
+	fill: var(--text-color);
+	cursor: pointer;
+	&:hover{
+		transform: scale(1.05);
+	}
+	&:active{
+		transform: scale(0.95);
+	}
+}
+.li{
+	background-color: var(--color-additional);
+}
+.li__default{
+	width: 90%;
+	cursor: pointer;
+	margin-bottom: 5px;
+	// margin-left: auto;
+	// margin-right: auto;
+	transform: translateX(7.5px);
+	list-style-type: none;
+}

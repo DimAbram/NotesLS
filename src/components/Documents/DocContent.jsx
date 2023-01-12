@@ -18,9 +18,10 @@ export const DocContent = () => {
 			<div className={st.container}>
 				{content.map((capter, i) => {
 					return (
-						<div className={st.container__cap}>
-							<div className={st.container__i}>
+						<div key={nanoid()} className={st.container__cap}>
+							<div key={nanoid()} className={st.container__i}>
 								<i
+									key={nanoid()}
 									className={cn(!arrowsCapters[i] ? st.right : st.down)}
 									onClick={() => {
 										setArrowsCapters(
