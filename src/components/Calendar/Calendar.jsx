@@ -3,7 +3,7 @@ import { useCalendar } from './hooks/useCalendar'
 import { useSelector } from 'react-redux'
 import { ReactComponent as Arrow } from '../../static/img/arrow.svg'
 
-import { checkDateIsEquel, checkIsToday } from '../../utils/date'
+import { checkDateIsEquel, checkIsToday, checkInNotes } from '../../utils/date'
 
 import st from './Calendar.module.scss'
 import cn from 'classnames'
@@ -35,7 +35,8 @@ export const Calendar = ({selectedDate, selectDate, mode}) => {
 				</div>
 				<div className={st.calendar__days}>
 					{state.calendarDays.map(day => {
-
+						const inNotes = checkInNotes(day.date, notes)
+						const color=inNotes[0]?inNotes[1]:'none'
 						const isToday = checkIsToday(day.date)
 						const isSelectedDay = checkDateIsEquel(
 							day.date,
@@ -64,9 +65,9 @@ export const Calendar = ({selectedDate, selectDate, mode}) => {
 										st.calendar__day__gang3,
 									isToday && st.calendar__today__item,
 									isSelectedDay && st.calendar__selected__item,
-									isAdditionalDay && st.calendar__additional__day,
+									isAdditionalDay && st.calendar__additional__day
 								)}
-								// style={{ backgroundColor: '#e65ee5' }}
+								style={{ backgroundColor: color }}
 							>
 								{day.dayNumber}
 							</div>

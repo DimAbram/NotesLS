@@ -9,7 +9,7 @@ const initialState = [
 		days: [
 			{
 				date: '20',
-				month: '1',
+				month: '0',
 				year: '2023',
 			},
 		],
@@ -22,7 +22,7 @@ const initialState = [
 		days: [
 			{
 				date: '22',
-				month: '1',
+				month: '0',
 				year: '2023',
 			},
 		],
@@ -35,7 +35,7 @@ const initialState = [
 		days: [
 			{
 				date: '24',
-				month: '1',
+				month: '0',
 				year: '2023',
 			},
 		],
@@ -48,7 +48,7 @@ const initialState = [
 		days: [
 			{
 				date: '25',
-				month: '1',
+				month: '0',
 				year: '2023',
 			},
 		],
@@ -65,14 +65,13 @@ export const calendarNotesSlice = createSlice({
 				const id = nanoid()
 				let days=Array.from({length:note.count})
 				days=days.map((_,i)=>{
-					let day =new Date(note.date1.year, note.date1.month, note.date1.date+i)
+					let day =new Date(note.date1.year, note.date1.month-1, +note.date1.date+i)
 					return {
 						date: '' + day.getDate(),
 						month: '' + day.getMonth(),
 						year: '' + day.getFullYear(),
 					}
 				})
-				// console.log(days)
 				return {
 					payload: {
 						id,

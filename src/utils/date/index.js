@@ -7,6 +7,7 @@ import {getMonthNumberOfDays} from './getMonthNumberOfDays'
 import {checkDateIsEquel} from './checkDateIsEquel'
 import { checkIsToday } from './checkIsToday'
 import {formateDate} from './formateDate'
+import { checkInNotes } from './checkInNotes'
 
 export {
 	createDate,
@@ -18,4 +19,5 @@ export {
 	checkDateIsEquel,
 	checkIsToday,
 	formateDate,
+	checkInNotes,
 }

@@ -21,7 +21,7 @@ export const CNI = ({ note }) => {
 						{formateDate(
 							new Date(
 								note.days[0].year,
-								note.days[0].month - 1,
+								note.days[0].month,
 								note.days[0].date
 							),
 							'DD.MM.YYYY'
@@ -34,7 +34,7 @@ export const CNI = ({ note }) => {
 						{formateDate(
 							new Date(
 								note.days[0].year,
-								note.days[0].month - 1,
+								note.days[0].month,
 								note.days[0].date
 							),
 							'DD.MM.YYYY'
@@ -43,7 +43,7 @@ export const CNI = ({ note }) => {
 						{formateDate(
 							new Date(
 								note.days[note.count - 1].year,
-								note.days[note.count - 1].month - 1,
+								note.days[note.count - 1].month,
 								note.days[note.count - 1].date
 							),
 							'DD.MM.YYYY'
