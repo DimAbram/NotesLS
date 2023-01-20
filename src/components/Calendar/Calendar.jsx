@@ -1,6 +1,6 @@
 import React from 'react'
 import { useCalendar } from './hooks/useCalendar'
-
+import { useSelector } from 'react-redux'
 import { ReactComponent as Arrow } from '../../static/img/arrow.svg'
 
 import { checkDateIsEquel, checkIsToday } from '../../utils/date'
@@ -8,8 +8,9 @@ import { checkDateIsEquel, checkIsToday } from '../../utils/date'
 import st from './Calendar.module.scss'
 import cn from 'classnames'
 
-export const Calendar = ({selectedDate, selectDate}) => {
+export const Calendar = ({selectedDate, selectDate, mode}) => {
 	const {state, functions}=useCalendar({selectedDate})
+	const notes = useSelector(state => state.calendarNotes)
 	return (
 		<div className={st.calendar}>
 			<div className={st.calendar__header}>
@@ -34,11 +35,13 @@ export const Calendar = ({selectedDate, selectDate}) => {
 				</div>
 				<div className={st.calendar__days}>
 					{state.calendarDays.map(day => {
+
 						const isToday = checkIsToday(day.date)
 						const isSelectedDay = checkDateIsEquel(
 							day.date,
 							state.selectedDate.date
 						)
+						// console.log(day.date)
 						const isAdditionalDay =
 							day.monthIndex !== state.selectedMonth.monthIndex
 						return (
@@ -50,10 +53,20 @@ export const Calendar = ({selectedDate, selectDate}) => {
 								}}
 								className={cn(
 									st.calendar__day,
+									day.gang === 1 &&
+										(mode === 0 || mode === 1) &&
+										st.calendar__day__gang1,
+									day.gang === 2 &&
+										(mode === 0 || mode === 2) &&
+										st.calendar__day__gang2,
+									day.gang === 3 &&
+										(mode === 0 || mode === 3) &&
+										st.calendar__day__gang3,
 									isToday && st.calendar__today__item,
 									isSelectedDay && st.calendar__selected__item,
-									isAdditionalDay && st.calendar__additional__day
+									isAdditionalDay && st.calendar__additional__day,
 								)}
+								// style={{ backgroundColor: '#e65ee5' }}
 							>
 								{day.dayNumber}
 							</div>

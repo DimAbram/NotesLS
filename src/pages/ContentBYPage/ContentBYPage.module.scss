@@ -38,3 +38,20 @@ ul{
 	transform: translateX(7.5px);
 	list-style-type: none;
 }
+.link{
+	padding: 7px;
+	cursor: pointer;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	// margin-top: auto;
+	// margin-bottom: auto;
+	margin: 0;
+	color: var(--text-color);
+	&:hover{
+		background: var(--color-additional);
+	}
+	&:active{
+		background: var(--color-additional7);
+	}
+}

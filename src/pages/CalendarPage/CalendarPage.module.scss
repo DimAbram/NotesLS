@@ -1,0 +1,10 @@
+.page{
+	
+	&__calendar{
+	display: flex;
+	justify-content: center;
+	}
+	&__notes{
+		margin: 20px;
+	}
+}

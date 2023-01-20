@@ -6,6 +6,7 @@ import {getWeekDaysNames} from './getWeekDaysNames'
 import {getMonthNumberOfDays} from './getMonthNumberOfDays'
 import {checkDateIsEquel} from './checkDateIsEquel'
 import { checkIsToday } from './checkIsToday'
+import {formateDate} from './formateDate'
 
 export {
 	createDate,
@@ -16,4 +17,5 @@ export {
 	getMonthNumberOfDays,
 	checkDateIsEquel,
 	checkIsToday,
+	formateDate,
 }

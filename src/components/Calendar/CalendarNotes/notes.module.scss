@@ -1,0 +1,65 @@
+
+.butadd{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--text-color);
+	cursor: pointer;
+	border: 1px solid var(--text-color);
+	border-radius: 4px;
+	height: 155px;
+	&:hover{
+		color: var(--color-additional);
+		border-color: var(--color-additional);
+	}
+	&:active{
+		color: var(--color-additional7);
+		border-color: var(--color-additional7);
+	}
+}
+.modal__date{
+	display: flex;
+	&__input{
+		width: 30px;
+		margin-right: 10px;
+		margin-bottom: 10px;
+	}
+	&__label{
+		color: var(--text-color);
+		text-align: center;
+		margin: 10px 0;
+	}
+	&__color{
+		padding: 0;
+		margin: 0;
+		width: 25px;
+	}
+}
+.notes{
+	display: flex;
+	justify-content: center;
+}
+.container{
+
+	color: var(--text-color);
+	text-align: center;
+	width: 500px;
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
+}
+.note{
+	width: 150px;
+	position: relative;
+	height: 150px;
+	border: 1px solid var(--text-color);
+	border-radius: 4px;
+	padding: 0 5px 5px 5px;
+	&__date{
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		font-size: 12px;
+	}
+}

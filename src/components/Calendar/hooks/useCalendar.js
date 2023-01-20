@@ -19,7 +19,6 @@ export const useCalendar = ({ selectedDate: date }) => {
 	const setSelectedMonthByIndex = monthIndex => {
 		setSelectedMonth(createMonth(new Date(selectedYear, monthIndex)))
 	}
-
 	const days = useMemo(
 		() => selectedMonth.createMonthDays(),
 		[selectedMonth]

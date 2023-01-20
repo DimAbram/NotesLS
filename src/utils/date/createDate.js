@@ -1,4 +1,6 @@
 import { getWeekNumber } from './getWeekNumber'
+import { getGang } from './getGang'
+
 
 export const createDate = date => {
 	const d = date ?? new Date()
@@ -14,7 +16,7 @@ export const createDate = date => {
 	const monthIndex = d.getMonth()
 	const timestamp = d.getTime()
 	const week = getWeekNumber(d)
-	// const gang = getGang(d)
+	const gang = getGang(d)
 
 	return {
 		date: d,
@@ -30,6 +32,6 @@ export const createDate = date => {
 		monthIndex,
 		timestamp,
 		week,
-		// gang,
+		gang,
 	}
 }

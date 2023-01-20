@@ -1,3 +1,5 @@
+
+
 .calendar {
 	margin: 10px;
 	width: 200px;
@@ -66,7 +68,17 @@
 		&:hover {
 			background-color: var(--color-additional7);
 		}
+		&__gang1{
+			background-color: var(--color-gang1);
+		}
+		&__gang2{
+			background-color: var(--color-gang2);
+		}
+		&__gang3{
+			background-color: var(--color-gang3);
+		}
 	}
+	
 	&__additional__day {
 		
 		font-weight: 200;

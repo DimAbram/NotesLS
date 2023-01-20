@@ -14,8 +14,8 @@ export const FavoriteItem = ({text, iFavorite, id}) => {
 	const elem = useMemo(() => {
 		if (withDoublePoint) {
 			let index = text.indexOf(':', 0)
-			let result = [text.slice(0, index + 1), text.slice(index + 3)]
-			result[1] = result[1].split(/\n/).filter(el => el !== '')
+			let result = [text.slice(0, index + 1), text.slice(index+2)]
+			result[1] = result[1].split(/;\n/).filter(el => el !== '')
 			return result
 		} else return text
 	}, [text, withDoublePoint])

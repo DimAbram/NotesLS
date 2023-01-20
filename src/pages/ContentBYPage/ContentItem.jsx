@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { addFavorit } from '../../components/Notes/slice'
 
+import {Link} from 'react-router-dom'
 import { ReactComponent as Star } from '../../static/img/star.svg'
 import { Modal } from '../../UI'
 
@@ -20,7 +21,7 @@ export const ContentItem = ({ text }) => {
 	const elem = useMemo(() => {
 		if (withDoublePoint) {
 			let index = text.indexOf(':', 0)
-			let result = [text.slice(0, index + 1), text.slice(index + 3)]
+			let result = [text.slice(0, index + 1), text.slice(index + 2)]
 			result[1] = result[1].split(/;\n/).filter(el => el !== '')
 			return result
 		} else return text
@@ -72,6 +73,9 @@ export const ContentItem = ({ text }) => {
 				action={handleClickStar}
 				cancel={() => setModalStar(false)}
 			>
+				{notes.length === 0 && (
+					<Link to='/notes' className={st.link}>У вас пока нет заметок, перейти в заметки?</Link>
+				)}
 				<ul key={nanoid()}>
 					{notes.map((el, i) => {
 						let backlight = indexNote === i
