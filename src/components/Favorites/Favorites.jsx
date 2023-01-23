@@ -4,7 +4,7 @@ import { useSelector} from 'react-redux'
 
 
 import { nanoid } from 'nanoid'
-import st from './Favorites.module.scss'
+// import st from './Favorites.module.scss'
 import { FavoriteItem } from './FavoriteItem'
 
 export const Favorites = () => {
