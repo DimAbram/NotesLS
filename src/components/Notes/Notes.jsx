@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { addNote } from './slice';
@@ -12,6 +12,10 @@ export const Notes = () => {
   const [modalInputTitle, setIsModalInputTitle] = useState('');
   const notes = useSelector((state) => state.notes);
   const dispatch = useDispatch();
+  useEffect(() => {
+    localStorage.setItem('notes', JSON.stringify(notes));
+  }, [notes]);
+
   const handlerAddNote = () => {
     if (modalInputTitle === '') {
       setIsModalVisible(false);

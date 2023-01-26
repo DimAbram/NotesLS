@@ -21,7 +21,7 @@ const Root = () => {
         <Route path="doc/" element={<DocPage />} />
         <Route path="doc/BY" element={<DocBYPage />} />
         <Route path="doc/BYcontent" element={<DocBYContentPage />} />
-        <Route path="doc/BYcontent/:i/:j" element={<ContentBYPage />} />
+        <Route path="doc/BYcontent/:indexCapter/:indexSection" element={<ContentBYPage />} />
         {/* <Route path='*' element={<NotFound />} /> */}
       </Route>
     </Routes>

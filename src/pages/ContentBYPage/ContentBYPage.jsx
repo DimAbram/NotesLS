@@ -8,8 +8,9 @@ import st from './ContentBYPage.module.scss';
 import { nanoid } from 'nanoid';
 
 export const ContentBYPage = () => {
-  const { i, j } = useParams();
-  let { title, content } = boevoyUstav.capters[i].sections[j];
+  const { indexCapter, indexSection } = useParams();
+  let { title, content } =
+    boevoyUstav.capters[indexCapter].sections[indexSection];
   const num = useMemo(() => title.match(/ГЛАВА \d+/)[0], [title]);
 
   title = title.replace(/ГЛАВА \d+/, '');

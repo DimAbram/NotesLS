@@ -1,59 +1,11 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit';
 
-const initialState = [
-  {
-    id: 'gggggggg',
-    title: 'Отпуск',
-    color: '#e65405',
-    count: 1,
-    days: [
-      {
-        date: '20',
-        month: '0',
-        year: '2023',
-      },
-    ],
-  },
-  {
-    id: 'ggggg',
-    title: 'Отпуск',
-    color: '#e42305',
-    count: 1,
-    days: [
-      {
-        date: '22',
-        month: '0',
-        year: '2023',
-      },
-    ],
-  },
-  {
-    id: 'ggggggggdsdfsdfg',
-    title: 'Отпуск',
-    color: '#e77405',
-    count: 1,
-    days: [
-      {
-        date: '24',
-        month: '0',
-        year: '2023',
-      },
-    ],
-  },
-  {
-    id: 'ggggggggdsdfsd;lmlk;mkfg',
-    title: 'Отпуск',
-    color: '#e65405',
-    count: 1,
-    days: [
-      {
-        date: '25',
-        month: '0',
-        year: '2023',
-      },
-    ],
-  },
-];
+const getNotes = () => {
+  const notes = window?.localStorage?.getItem('calendarNotes');
+  return notes ? JSON.parse(notes):[];
+};
+
+const initialState = getNotes();
 
 export const calendarNotesSlice = createSlice({
   name: 'calendarNotes',

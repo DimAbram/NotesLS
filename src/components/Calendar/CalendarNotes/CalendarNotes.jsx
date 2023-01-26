@@ -15,7 +15,7 @@ export const CalendarNotes = ({ selectedDate }) => {
   const [modalTitle, setModalTitle] = useState('');
   const [modalYear, setModalYear] = useState('' + selectedDate.getFullYear());
   const [modalMonth, setModalMonth] = useState(
-    '' + selectedDate.getMonth() + 1,
+    '' + (+selectedDate.getMonth() + 1),
   );
   const [modalDate, setModalDate] = useState('' + selectedDate.getDate());
   const [modalCount, setModalCount] = useState('1');
@@ -23,13 +23,20 @@ export const CalendarNotes = ({ selectedDate }) => {
 
   useEffect(() => {
     setModalYear('' + selectedDate.getFullYear());
-    setModalMonth('' + selectedDate.getMonth() + 1);
+    setModalMonth('' + (+selectedDate.getMonth() + 1));
     setModalDate('' + selectedDate.getDate());
   }, [selectedDate]);
 
+    useEffect(() => {
+      localStorage.setItem(
+        'calendarNotes',
+        JSON.stringify(notes),
+      );
+    }, [notes]);
+
   const handleCancelModal = () => {
     setModalYear('' + selectedDate.getFullYear());
-    setModalMonth('' + selectedDate.getMonth() + 1);
+    setModalMonth('' + (+selectedDate.getMonth() + 1));
     setModalDate('' + selectedDate.getDate());
     setModalColor('#e65405');
     setModalCount('1');
@@ -50,7 +57,7 @@ export const CalendarNotes = ({ selectedDate }) => {
       }),
     );
     setModalYear(selectedDate.getFullYear());
-    setModalMonth(selectedDate.getMonth() + 1);
+    setModalMonth(+selectedDate.getMonth() + 1);
     setModalDate(selectedDate.getDate());
     setModalCount('1');
     setModalTitle('');
