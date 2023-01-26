@@ -1,29 +1,29 @@
-.default{
-	cursor: pointer;
-	border: 1px solid var(--text-color);
-	color: var(--text-color);
-	text-align: center;
-	background: inherit;
-	padding-top: auto;
-	padding-bottom: auto;
-	border-radius: 3px;
-	&:hover,
-	:focus{
-		background: var(--color-additional);
-	}
-	&:active{
-		background: var(--color-additional7);
-		transform: scale(0.95);
-	}
+.default {
+  cursor: pointer;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  text-align: center;
+  background: inherit;
+  padding-top: auto;
+  padding-bottom: auto;
+  border-radius: 3px;
+  &:hover,
+  :focus {
+    background: var(--color-additional);
+  }
+  &:active {
+    background: var(--color-additional7);
+    transform: scale(0.95);
+  }
 }
-.small{
-	padding: 3px;
-	font-size: 15px;
+.small {
+  padding: 3px;
+  font-size: 15px;
 }
-.middle{
-	padding: 2px 7px;
-	font-size: 17px;
+.middle {
+  padding: 2px 7px;
+  font-size: 17px;
 }
-.big{
-	padding: 10px;
+.big {
+  padding: 10px;
 }

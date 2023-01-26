@@ -1,2 +1,2 @@
-export {ContentBYPage as default} from './ContentBYPage'
-export { ContentItem } from './ContentItem'
+export { ContentBYPage as default } from './ContentBYPage';
+export { ContentItem } from './ContentItem';

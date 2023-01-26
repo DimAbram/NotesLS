@@ -1,58 +1,58 @@
-.modal{
-	z-index: 1000;
-	height: 100vh;
-	width: 100vw;
-	background-color: rgba(0,0,0,0.5);
-	position: fixed;
-	top: 0;
-	left: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	pointer-events: none;
-	opacity: 0;
-	transition: 0.5s;
-	&.active{
-		opacity: 1;
-		pointer-events: all;
-	}
-	&__dialog{
-		position: relative;
-		transform: scale(0.5);
-		transition: 0.4s all;
-		min-width: 300px;
-		border-radius: 4px;
-		border: 1px solid var(--text-color);
-		&.active{
-			transform: scale(1);
-		}
-	}
+.modal {
+  z-index: 1000;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.5s;
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+  &__dialog {
+    position: relative;
+    transform: scale(0.5);
+    transition: 0.4s all;
+    min-width: 300px;
+    border-radius: 4px;
+    border: 1px solid var(--text-color);
+    &.active {
+      transform: scale(1);
+    }
+  }
 
-	&__content{
-		padding: 10px 20px;
-		max-height: 50vh;
-		overflow-y: auto;
-		background-color: var(--bg-content);
-	}
-	&__header{
-		background-color: var(--bg-header);
-		border-top-left-radius: 5px;
-		border-top-right-radius: 5px;
-		padding: 3.5px ;
-		font-size: 17px;
-		text-align: center;
-		position: relative;
-		top: 0;
-		color: var(--text-color);
-	}
-	&__footter{
-		display: flex;
-		justify-content: space-evenly;
-		background-color: var(--bg-header);
-		border-bottom-left-radius: 5px;
-		border-bottom-right-radius: 5px;
-		position: relative;
-		padding: 3.5px ;
-		bottom: 0;
-	}
+  &__content {
+    padding: 10px 20px;
+    max-height: 50vh;
+    overflow-y: auto;
+    background-color: var(--bg-content);
+  }
+  &__header {
+    background-color: var(--bg-header);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 3.5px;
+    font-size: 17px;
+    text-align: center;
+    position: relative;
+    top: 0;
+    color: var(--text-color);
+  }
+  &__footter {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: var(--bg-header);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: relative;
+    padding: 3.5px;
+    bottom: 0;
+  }
 }

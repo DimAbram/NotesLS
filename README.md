@@ -1,6 +1,6 @@
 # Notes lifesaver
 
-This website was created for **lifesaver-firefighter** from Belarus and 
+This website was created for **lifesaver-firefighter** from Belarus and
 designed to take notes to reduce the time of searching in books. There is also a convenient calendar with gangs.
 
 ### What is used
@@ -8,10 +8,8 @@ designed to take notes to reduce the time of searching in books. There is also a
 The site is completely written in React, `react-redux` and `@reduxjs/toolkit` is used to store data( notes, calendar notes, theme ). For routing on site used `react-router-dom`.
 
 ### Routing
-Site has three main pages:
-	- _notes_
-	- _documents_
-	- _calendar_
+
+Site has three main pages: - _notes_ - _documents_ - _calendar_
 This pages have several routes.
 
 ### Notes

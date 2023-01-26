@@ -1,4 +1,4 @@
-import ButtonClose from './buttonClose'
-import Button from './button'
+import ButtonClose from './buttonClose';
+import Button from './button';
 
-export {ButtonClose, Button}
+export { ButtonClose, Button };

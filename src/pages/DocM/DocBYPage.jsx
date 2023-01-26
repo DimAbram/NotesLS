@@ -1,8 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import { DocBY } from '../../components'
-
+import { DocBY } from '../../components';
 
 export const DocBYPage = () => {
-	return <DocBY/>
-}
+  return <DocBY />;
+};

@@ -1,5 +1,5 @@
 .root {
-	position: relative;
+  position: relative;
   border-radius: 50%;
   display: block;
   height: 24px;
@@ -13,7 +13,7 @@
     cursor: pointer;
   }
   &:before {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
   }
@@ -23,12 +23,9 @@
     background-color: var(--text-color);
     border-radius: 50%;
     box-shadow: 10px 0 0 -3.5px var(--text-color),
-      -10px 0 0 -3.5px var(--text-color),
-      0 -10px 0 -3.5px var(--text-color),
-      0 10px 0 -3.5px var(--text-color),
-      7px -7px 0 -3.5px var(--text-color),
-      7px 7px 0 -3.5px var(--text-color),
-      -7px 7px 0 -3.5px var(--text-color),
+      -10px 0 0 -3.5px var(--text-color), 0 -10px 0 -3.5px var(--text-color),
+      0 10px 0 -3.5px var(--text-color), 7px -7px 0 -3.5px var(--text-color),
+      7px 7px 0 -3.5px var(--text-color), -7px 7px 0 -3.5px var(--text-color),
       -7px -7px 0 -3.5px var(--text-color);
     height: 10px;
     left: 7px;
@@ -48,7 +45,7 @@
   }
   &.dark {
     &:before {
-      animation-duration: .5s;
+      animation-duration: 0.5s;
       animation-name: moon;
       background-color: var(--text-color);
       border-radius: 50%;
@@ -62,11 +59,11 @@
       }
     }
     &:after {
-      animation-duration: .5s;
+      animation-duration: 0.5s;
       animation-name: moon-shadow;
       background: var(--bg-header);
       border-radius: 50%;
-      content: "";
+      content: '';
       display: block;
       height: 18px;
       position: absolute;
@@ -81,25 +78,18 @@
 @keyframes sun {
   from {
     background-color: var(--bg-content);
-    box-shadow: 0 0 0 -5px var(--bg-content),
-                0 0 0 -5px var(--bg-content),
-                0 0 0 -5px var(--bg-content),
-                0 0 0 -5px var(--bg-content),
-                0 0 0 -5px var(--bg-content),
-                0 0 0 -5px var(--bg-content),
-                0 0 0 -5px var(--bg-content),
-                0 0 0 -5px var(--bg-content);
+    box-shadow: 0 0 0 -5px var(--bg-content), 0 0 0 -5px var(--bg-content),
+      0 0 0 -5px var(--bg-content), 0 0 0 -5px var(--bg-content),
+      0 0 0 -5px var(--bg-content), 0 0 0 -5px var(--bg-content),
+      0 0 0 -5px var(--bg-content), 0 0 0 -5px var(--bg-content);
   }
   to {
     background-color: var(--text-color);
     box-shadow: 10px 0 0 -3.5px var(--text-color),
-                -10px 0 0 -3.5px var(--text-color),
-                0 -10px 0 -3.5px var(--text-color),
-                0 10px 0 -3.5px var(--text-color),
-                7px -7px 0 -3.5px var(--text-color),
-                7px 7px 0 -3.5px var(--text-color),
-                -7px 7px 0 -3.5px var(--text-color),
-                -7px -7px 0 -3.5px var(--text-color);
+      -10px 0 0 -3.5px var(--text-color), 0 -10px 0 -3.5px var(--text-color),
+      0 10px 0 -3.5px var(--text-color), 7px -7px 0 -3.5px var(--text-color),
+      7px 7px 0 -3.5px var(--text-color), -7px 7px 0 -3.5px var(--text-color),
+      -7px -7px 0 -3.5px var(--text-color);
   }
 }
 

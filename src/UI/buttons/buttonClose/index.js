@@ -1,1 +1,1 @@
-export {ButtonClose as default} from './ButtonClose.jsx'
+export { ButtonClose as default } from './ButtonClose.jsx';

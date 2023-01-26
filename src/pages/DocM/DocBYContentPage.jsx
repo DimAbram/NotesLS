@@ -1,5 +1,5 @@
 import React from 'react';
-import { DocContent } from '../../components'
+import { DocContent } from '../../components';
 export const DocBYContentPage = () => {
-	return <DocContent/>
-}
+  return <DocContent />;
+};

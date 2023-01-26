@@ -1,5 +1,3 @@
-import {boevoyUstav} from './BY'
+import { boevoyUstav } from './BY';
 
-
-
-export { boevoyUstav }
+export { boevoyUstav };

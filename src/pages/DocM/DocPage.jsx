@@ -1,7 +1,10 @@
-import React from 'react'
-import { Documents } from '../../components'
+import React from 'react';
+import { Documents } from '../../components';
 
 export const DocPage = () => {
-	return <div><Documents/></div>
-}
-
+  return (
+    <div>
+      <Documents />
+    </div>
+  );
+};

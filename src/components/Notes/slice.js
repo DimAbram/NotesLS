@@ -1,13 +1,13 @@
-import { createSlice, nanoid } from '@reduxjs/toolkit'
+import { createSlice, nanoid } from '@reduxjs/toolkit';
 
 const initialState = [
-	{
-		title: 'note1',
-		id: '1',
-		favorites: [
-			'73. При организации разведки одновременно в нескол..',
-			'73. При организации разведки одновременно в нескол..',
-			`56. Решающее направление боевых действий на пожаре определяется исходя из следующих принципов (приоритет которых установлен в порядке перечисления):
+  {
+    title: 'note1',
+    id: '1',
+    favorites: [
+      '73. При организации разведки одновременно в нескол..',
+      '73. При организации разведки одновременно в нескол..',
+      `56. Решающее направление боевых действий на пожаре определяется исходя из следующих принципов (приоритет которых установлен в порядке перечисления):
 сли опасные факторы пожара угрожают жизни и здоровью людей
 основные силы и средства сосредотачиваются для обеспечения
 спасательных работ;
@@ -26,7 +26,7 @@ const initialState = [
 нет угрозы распространения огня на соседние объекты — основные силы и
 средства сосредотачиваются и вводятся в местах наиболее интенсивного
 горения.`,
-			`58. Успех тушения пожара достигается:
+      `58. Успех тушения пожара достигается:
 качественным проведением разведки, правильной оценкой
 обстановки и принятием квалифицированного решения по использованию
 сил и средств, имеющихся в распоряжении руководителя тушения пожара,
@@ -45,50 +45,56 @@ const initialState = [
 действиями, исполнительской дисциплиной работников МЧС;
 высокой боевой готовностью технических средств и умением
 спасателей грамотно их эксплуатировать.`,
-		],
-	},
-]
+    ],
+  },
+];
 
 export const notesSlice = createSlice({
-	name: 'notes',
-	initialState,
-	reducers: {
-		addNote: {
-			reducer: (state, action) => [...state, action.payload],
-			prepare: note => {
-				const id = nanoid()
-				const favorites = []
-				return {
-					payload: {
-						title: note,
-						id,
-						favorites,
-					},
-				}
-			},
-		},
-		addFavorit: (state, action) => {
-			return state.map(note =>
-				action.payload.id === note.id
-					? { ...note, favorites: [...note.favorites, action.payload.favorit] }
-					: note
-			)
-		},
-		deleteFavorit: (state, action) => {
-			return state.map(note =>
-				action.payload.id === note.id
-					? { ...note, favorites: [...note.favorites.filter((_,i)=>{
-						return i!==action.payload.index
-					})] }
-					: note
-			)
-		},
+  name: 'notes',
+  initialState,
+  reducers: {
+    addNote: {
+      reducer: (state, action) => [...state, action.payload],
+      prepare: (note) => {
+        const id = nanoid();
+        const favorites = [];
+        return {
+          payload: {
+            title: note,
+            id,
+            favorites,
+          },
+        };
+      },
+    },
+    addFavorit: (state, action) => {
+      return state.map((note) =>
+        action.payload.id === note.id
+          ? { ...note, favorites: [...note.favorites, action.payload.favorit] }
+          : note,
+      );
+    },
+    deleteFavorit: (state, action) => {
+      return state.map((note) =>
+        action.payload.id === note.id
+          ? {
+              ...note,
+              favorites: [
+                ...note.favorites.filter((_, i) => {
+                  return i !== action.payload.index;
+                }),
+              ],
+            }
+          : note,
+      );
+    },
 
-		deleteNote: (state, action) =>
-			state.filter(note => note.id !== action.payload),
-	},
-})
+    deleteNote: (state, action) =>
+      state.filter((note) => note.id !== action.payload),
+  },
+});
 
-export default notesSlice.reducer
+export default notesSlice.reducer;
 
-export const { addNote, deleteNote, addFavorit, deleteFavorit } = notesSlice.actions
+export const { addNote, deleteNote, addFavorit, deleteFavorit } =
+  notesSlice.actions;

@@ -1,1 +1,1 @@
-export { NoteItem as default } from './NoteItem'
+export { NoteItem as default } from './NoteItem';
