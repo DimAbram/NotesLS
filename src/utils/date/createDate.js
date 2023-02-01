@@ -1,5 +1,6 @@
 import { getWeekNumber } from './getWeekNumber';
 import { getGang } from './getGang';
+import { checkInNotes } from '.';
 
 export const createDate = (date) => {
   const d = date ?? new Date();
@@ -11,11 +12,12 @@ export const createDate = (date) => {
   const yearShort = d.toLocaleDateString('ru', { year: '2-digit' });
   const month = d.toLocaleDateString('ru', { month: 'long' });
   const monthShort = d.toLocaleDateString('ru', { month: 'short' });
-  const monthNamber = d.getMonth() + 1;
+  const monthNumber = d.getMonth() + 1;
   const monthIndex = d.getMonth();
   const timestamp = d.getTime();
   const week = getWeekNumber(d);
   const gang = getGang(d);
+  const inNote = checkInNotes(d, localStorage.getItem('calendarNotes'));
 
   return {
     date: d,
@@ -27,10 +29,11 @@ export const createDate = (date) => {
     yearShort,
     month,
     monthShort,
-    monthNamber,
+    monthNumber,
     monthIndex,
     timestamp,
     week,
     gang,
+    inNote
   };
 };

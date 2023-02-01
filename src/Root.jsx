@@ -5,24 +5,31 @@ import {
   NotesPage,
   CalendarPage,
   DocPage,
-  DocBYPage,
-  DocBYContentPage,
-  ContentBYPage,
+  DocAllTextPage,
+  DocContentPage,
+  DocTextContent,
   FavoritesPage,
+  NotFoundPage,
+  TestPage,
 } from './pages';
 
 const Root = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
+        <Route index element={<NotesPage />} />
         <Route path="notes" element={<NotesPage />} />
         <Route path="notes/favorite/:note" element={<FavoritesPage />} />
         <Route path="calendar" element={<CalendarPage />} />
         <Route path="doc/" element={<DocPage />} />
-        <Route path="doc/BY" element={<DocBYPage />} />
-        <Route path="doc/BYcontent" element={<DocBYContentPage />} />
-        <Route path="doc/BYcontent/:indexCapter/:indexSection" element={<ContentBYPage />} />
-        {/* <Route path='*' element={<NotFound />} /> */}
+        <Route path="/test" element={<TestPage />} />
+        <Route path="/doc/docAll/:id" element={<DocAllTextPage />} />
+        <Route path="/doc/docChapter/:id" element={<DocContentPage />} />
+        <Route
+          path="/doc/docChapter/:id/:indexChapter/:indexSection"
+          element={<DocTextContent />}
+        />
+        <Route path={'*'} element={<NotFoundPage />} />
       </Route>
     </Routes>
   );

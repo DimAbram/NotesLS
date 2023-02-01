@@ -1,6 +1,6 @@
-import { checkDateIsEquel } from './checkDateIsEquel';
+import { checkDateIsEqual } from './checkDateIsEqual';
 
 export const checkIsToday = (date) => {
   const today = new Date();
-  return checkDateIsEquel(today, date);
+  return checkDateIsEqual(today, date);
 };

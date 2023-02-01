@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { set } from './slice';
+import { set } from '../../redux/themeSlice';
 
 import cn from 'classnames';
 import styles from './theme.module.scss';

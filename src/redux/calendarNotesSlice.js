@@ -1,18 +1,29 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit';
 
-const getNotes = () => {
-  const notes = window?.localStorage?.getItem('calendarNotes');
-  return notes ? JSON.parse(notes):[];
-};
 
-const initialState = getNotes();
 
 export const calendarNotesSlice = createSlice({
   name: 'calendarNotes',
-  initialState,
+  initialState: {
+  status: 'loading',
+  items: [],
+},
   reducers: {
+    getNotes: () => {
+      const notes = window?.localStorage?.getItem('calendarNotes');
+      return {
+        status: 'loaded',
+        items: notes ? JSON.parse(notes) : [],
+      };
+    },
     addNote: {
-      reducer: (state, action) => [...state, action.payload],
+      reducer: (state, action) => {
+        localStorage.setItem(
+          'calendarNotes',
+          JSON.stringify([...state.items, action.payload]),
+        );
+        return { status: 'loaded', items: [...state.items, action.payload] };
+      },
       prepare: (note) => {
         const id = nanoid();
         let days = Array.from({ length: note.count });
@@ -40,10 +51,17 @@ export const calendarNotesSlice = createSlice({
       },
     },
     deleteNote: (state, action) =>
-      state.filter((note) => note.id !== action.payload),
+      {
+        const notes = state.items.filter((note) => note.id !== action.payload);
+        localStorage.setItem('calendarNotes', JSON.stringify(notes));
+        return {
+          status: 'loaded',
+          items: notes
+        }
+      }
   },
 });
 
 export default calendarNotesSlice.reducer;
 
-export const { addNote, deleteNote } = calendarNotesSlice.actions;
+export const { addNote, deleteNote, getNotes } = calendarNotesSlice.actions;

@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
 import st from './Favorites.module.scss';
 import { ButtonClose, Modal } from '../../UI';
-import { deleteFavorit } from '../Notes/slice';
+import { deleteFavorite } from '../../redux/notesSlice';
 
 export const FavoriteItem = ({ text, iFavorite, id }) => {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ export const FavoriteItem = ({ text, iFavorite, id }) => {
 
   const removeFavorite = () => {
     dispatch(
-      deleteFavorit({
+      deleteFavorite({
         id: id,
         index: iFavorite,
       }),

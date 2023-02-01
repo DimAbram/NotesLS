@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import { ButtonClose } from '../../../UI';
 import { Modal } from '../../../UI';
 import { formateDate } from '../../../utils/date/formateDate';
-import { deleteNote } from '../slice';
+import { deleteNote } from '../../../redux/calendarNotesSlice';
 import { useDispatch } from 'react-redux';
 import st from './notes.module.scss';
 
-export const CNI = ({ note }) => {
-  const [modal, setMpdal] = useState(false);
-  const dispath = useDispatch();
-  // console.log(note)
+export const CalendarNoteItem = ({ note }) => {
+  const [modal, setModal] = useState(false);
+  const dispatch = useDispatch();
+  const handleDelete=()=> dispatch(deleteNote(note.id));
   return (
     <div className={st.note} style={{ backgroundColor: note.color }}>
-      <ButtonClose action={() => setMpdal(true)} />
+      <ButtonClose action={() => setModal(true)} />
       <div className={st.note__title}>{note.title}</div>
       <div className={st.note__date}>
         {note.count === 1 && (
@@ -54,13 +54,11 @@ export const CNI = ({ note }) => {
       </div>
       <Modal
         visible={modal}
-        isVisible={setMpdal}
+        isVisible={setModal}
         title="Удалить заметку?"
         type="question"
-        action={() => {
-          dispath(deleteNote(note.id));
-        }}
-        cancel={() => setMpdal(false)}
+        action={handleDelete}
+        cancel={() => setModal(false)}
       />
     </div>
   );

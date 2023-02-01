@@ -1,16 +1,19 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
-import { boevoyUstav } from '../../static';
+import { documents } from '../../static';
+import { useParams } from 'react-router-dom';
 import st from './DocAll.module.scss';
-import { ContentItem } from '../../pages/ContentBYPage/ContentItem';
-export const DocBY = () => {
+import { ContentItem } from '../../pages/ContentPage/ContentItem';
+export const DocAllText = () => {
+  const { id } = useParams();
+  const docIndex = documents.findIndex((doc) => id === doc.id);
   return (
     <>
       <div className={st.header}>
-        <h4>{boevoyUstav.title}</h4>
-        <span>{boevoyUstav.header}</span>
+        <h4>{documents[docIndex].title}</h4>
+        <span>{documents[docIndex].header}</span>
       </div>
-      {boevoyUstav.capters.map((el) => {
+      {documents[docIndex].chapters.map((el) => {
         return (
           <div key={nanoid()}>
             <h4 key={nanoid()}>{el.title}</h4>

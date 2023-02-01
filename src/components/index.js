@@ -1,7 +1,7 @@
 import Layout from './Layout';
 import Theme from './Theme/Theme';
 import Notes from './Notes';
-import { Documents, DocBY, DocContent } from './Documents';
+import { Documents, DocAllText, DocContent } from './Documents';
 import { Calendar, CalendarInfo, CalendarNotes } from './Calendar';
 import { Favorites } from './Favorites';
 
@@ -10,7 +10,7 @@ export {
   Theme,
   Notes,
   Documents,
-  DocBY,
+  DocAllText,
   DocContent,
   Calendar,
   Favorites,

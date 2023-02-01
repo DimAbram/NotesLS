@@ -1,15 +1,21 @@
 import NotesPage from './NotesPage';
-import { DocPage, DocBYPage, DocBYContentPage } from './DocM';
+import { DocPage, DocAllTextPage, DocContentPage } from './DocM';
 import CalendarPage from './CalendarPage';
-import ContentBYPage from './ContentBYPage';
+import DocTextContent from './ContentPage';
 import { FavoritesPage } from './FavoritesPage';
+import { NotFoundPage } from './NotFoundPage';
+import { HomePage } from './HomePage';
+import { TestPage } from './TestPage';
 
 export {
   NotesPage,
   DocPage,
   CalendarPage,
-  DocBYPage,
-  DocBYContentPage,
-  ContentBYPage,
+  DocAllTextPage,
+  DocContentPage,
+  DocTextContent,
   FavoritesPage,
+  NotFoundPage,
+  HomePage,
+  TestPage,
 };

@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-import themeReducer from '../components/Theme/slice.js';
-import notesReducer from '../components/Notes/slice.js';
-import calendarNotes from '../components/Calendar/slice.js';
+import themeReducer from './themeSlice';
+import notesReducer from './notesSlice';
+import calendarNotes from './calendarNotesSlice';
 
 export const store = configureStore({
   reducer: {

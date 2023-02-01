@@ -3,15 +3,14 @@ import { useCalendar } from './hooks/useCalendar';
 import { useSelector } from 'react-redux';
 import { ReactComponent as Arrow } from '../../static/img/arrow.svg';
 
-import { checkDateIsEquel, checkIsToday, checkInNotes } from '../../utils/date';
+import { checkDateIsEqual, checkIsToday, checkInNotes } from '../../utils/date';
 
 import st from './Calendar.module.scss';
 import cn from 'classnames';
 
 export const Calendar = ({ selectedDate, selectDate, mode }) => {
-  const notes = useSelector((state) => state.calendarNotes);
+  const notes = useSelector((state) => state.calendarNotes.items);
   const { state, functions } = useCalendar({ selectedDate });
-
   return (
     <div className={st.calendar}>
       <div className={st.calendar__header}>
@@ -37,9 +36,9 @@ export const Calendar = ({ selectedDate, selectDate, mode }) => {
         <div className={st.calendar__days}>
           {state.calendarDays.map((day) => {
             const inNotes = checkInNotes(day.date, notes);
-            const color = inNotes[0] ? inNotes[1] : 'none';
             const isToday = checkIsToday(day.date);
-            const isSelectedDay = checkDateIsEquel(
+            const gang = 'calendar__day__gang' + day.gang;
+            const isSelectedDay = checkDateIsEqual(
               day.date,
               state.selectedDate.date,
             );
@@ -54,20 +53,17 @@ export const Calendar = ({ selectedDate, selectDate, mode }) => {
                 }}
                 className={cn(
                   st.calendar__day,
-                  day.gang === 1 &&
-                    (mode === 0 || mode === 1) &&
-                    st.calendar__day__gang1,
-                  day.gang === 2 &&
-                    (mode === 0 || mode === 2) &&
-                    st.calendar__day__gang2,
-                  day.gang === 3 &&
-                    (mode === 0 || mode === 3) &&
-                    st.calendar__day__gang3,
+                  (mode === 0 || mode === day.gang) && st[gang],
                   isToday && st.calendar__today__item,
                   isSelectedDay && st.calendar__selected__item,
                   isAdditionalDay && st.calendar__additional__day,
                 )}
-                style={{ backgroundColor: color }}
+                style={
+                  inNotes[0] ? {
+                    borderLeft: `3px solid ${inNotes[1]}`,
+                    borderRight: `3px solid ${inNotes[1]}`,
+                  }:{}
+                }
               >
                 {day.dayNumber}
               </div>

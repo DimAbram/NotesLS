@@ -1,3 +1,3 @@
-import { boevoyUstav } from './filesInObj';
+import { documents } from './filesInObj';
 
-export { boevoyUstav };
+export { documents };

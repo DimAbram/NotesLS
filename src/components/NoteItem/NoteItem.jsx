@@ -1,72 +1,77 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { ButtonClose } from '../../UI';
+import { ButtonClose, Button } from '../../UI';
 import { Modal } from '../../UI';
 
-import { deleteNote } from '../Notes/slice';
+import { deleteNote } from '../../redux/notesSlice';
 import st from './note.module.scss';
 
 export const NoteItem = ({ title, favorites, id }) => {
-  const [showAll, setShowAll] = useState(false);
-  const [modalQuestionIsVisible, setModalQuestionlVisible] = useState(false);
-  const disp = useDispatch();
+  const refLink = useRef();
+  const [showAll, setShowAll] = useState(true);
+  const [modalQuestionIsVisible, setModalQuestionsVisible] = useState(false);
+  const dispatch = useDispatch();
   const del = () => {
-    disp(deleteNote(id));
-    setModalQuestionlVisible(false);
+    dispatch(deleteNote(id));
+    setModalQuestionsVisible(false);
   };
   return (
-    <div className={st.container}>
-      <ButtonClose action={() => setModalQuestionlVisible(true)} />
-      <h3>
-        <Link to={`/notes/favorite/${id}`} className={st.link}>
-          {title}
-        </Link>
-      </h3>
-      {favorites.length === 0 && (
-        <div className={st.zero__favorit}>
+    <div
+      className={st.container}
+      onClick={() => {
+        refLink.current.click();
+      }}
+    >
+      <Link to={`/notes/favorite/${id}`} ref={refLink} hidden />
+      <ButtonClose
+        action={(e) => {
+          e.stopPropagation();
+          setModalQuestionsVisible(true);
+        }}
+      />
+      <h3>{title}</h3>
+      {!favorites.length && (
+        <div className={st.zero__favorite}>
           <h5>У вас пока нет добавленых в избранное</h5>
-          <Link to={'/doc'} className={st.zero__favorit__link}>
+          <Link to={'/doc'} className={st.zero__favorite__link} onClick={(e)=>e.stopPropagation()}>
             Перейти в документы?
           </Link>
         </div>
       )}
-      {favorites.length <= 2 && (
-        <ul>
-          {favorites.map((l, i) => {
-            let text = l.substr(0, 50);
-            return <li key={i + l}>{text}...</li>;
+      <ul>
+        {showAll && favorites.length > 0 && (
+          <>
+            <li>{favorites[0]}</li>
+          </>
+        )}
+        {!showAll &&
+          favorites.map((l, i) => {
+            let text = l;
+            return <li key={i + l}>{text}</li>;
           })}
-        </ul>
-      )}
-      {favorites.length > 2 && showAll && (
-        <ul>
-          {favorites.map((l, i) => {
-            let text = l.substr(0, 50);
-            return <li key={i + l}>{text}...</li>;
-          })}
-          <div className={st.show} onClick={() => setShowAll(!showAll)}>
-            ...скрыть
-          </div>
-        </ul>
-      )}
-      {favorites.length > 2 && showAll === false && (
-        <ul>
-          <li>{favorites[0].substr(0, 50)}...</li>
-          <li>{favorites[1].substr(0, 50)}...</li>
-          <div className={st.show} onClick={() => setShowAll(!showAll)}>
-            ...показать все
-          </div>
-        </ul>
+      </ul>
+      {favorites.length > 1 && (
+        <div className={st.button}>
+          <Button
+            action={(e) => {
+              e.stopPropagation();
+              setShowAll(!showAll);
+            }}
+            type="middle"
+          >
+            {showAll ? 'показать все' : 'скрыть'}
+          </Button>
+        </div>
       )}
       <Modal
         visible={modalQuestionIsVisible}
-        isVisible={setModalQuestionlVisible}
+        isVisible={setModalQuestionsVisible}
         title="Удалить заметку?"
         type="question"
         action={del}
-        cancel={() => setModalQuestionlVisible(false)}
+        cancel={() => setModalQuestionsVisible(false)}
       />
     </div>
   );

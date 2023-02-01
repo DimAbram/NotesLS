@@ -1,49 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../UI';
+import {documents} from '../../static'
 
 import st from './Documents.module.scss';
-
-const docs = [
-  {
-    title: 'Боевой устав',
-    num: '1',
-    date: '04.01.2021',
-    link: '/doc/BY',
-    linkContent: '/doc/BYcontent',
-  },
-  // {
-  // 	title: 'Устав службы',
-  // 	num: '2',
-  // 	date: '04.01.2021',
-  // 	link: '/doc/YS',
-  // 	linkContent: '/doc/YScontent',
-  // },
-  // {
-  // 	title: 'Приложение к боевому уставу',
-  // 	num: '1',
-  // 	date: '04.01.2021',
-  // 	link: '/doc/PBY',
-  // 	linkContent: '/doc/PBYcontent',
-  // },
-];
 
 export const Documents = () => {
   return (
     <div className={st.container}>
-      {docs.map((el) => {
+      {documents.map((el) => {
         return (
           <div key={el.title} className={st.container__el}>
-            <div className={st.container__title}>{el.title}</div>
+            <div className={st.container__title}>
+              {el.title} № {el.number}
+            </div>
+              <div className={st.info}>От {el.date}</div>
             <div className={st.container__buttons}>
-              <Button type="middle">
-                <Link to={el.link} className={st.link}>
-                  Открыть документ
+              <Button type="middle" className={st.button}>
+                <Link to={`/doc/docAll/${el.id}`} className={st.link}>
+                  Документ
                 </Link>
               </Button>
-              <Button type="middle">
-                <Link to={el.linkContent} className={st.link}>
-                  Открыть оглавления
+              <Button type="middle" className={st.button}>
+                <Link to={`/doc/docChapter/${el.id}`} className={st.link}>
+                  Оглавления
                 </Link>
               </Button>
             </div>

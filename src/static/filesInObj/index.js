@@ -1,3 +1,3 @@
-import { boevoyUstav } from './BY';
+import { documents } from './documents';
 
-export { boevoyUstav };
+export { documents };

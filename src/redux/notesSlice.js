@@ -25,14 +25,14 @@ export const notesSlice = createSlice({
         };
       },
     },
-    addFavorit: (state, action) => {
+    addFavorite: (state, action) => {
       return state.map((note) =>
         action.payload.id === note.id
-          ? { ...note, favorites: [...note.favorites, action.payload.favorit] }
+          ? { ...note, favorites: [...note.favorites, action.payload.favorite] }
           : note,
       );
     },
-    deleteFavorit: (state, action) => {
+    deleteFavorite: (state, action) => {
       return state.map((note) =>
         action.payload.id === note.id
           ? {
@@ -54,5 +54,5 @@ export const notesSlice = createSlice({
 
 export default notesSlice.reducer;
 
-export const { addNote, deleteNote, addFavorit, deleteFavorit } =
+export const { addNote, deleteNote, addFavorite, deleteFavorite } =
   notesSlice.actions;

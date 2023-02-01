@@ -53,9 +53,9 @@ export const useCalendar = ({ selectedDate: date }) => {
     return result;
   }, [selectedMonth.monthIndex, selectedYear, days]);
 
-  const onClickArrow = (diraction) => {
+  const onClickArrow = (direction) => {
     const monthIndex =
-      diraction === 'left'
+      direction === 'left'
         ? selectedMonth.monthIndex - 1
         : selectedMonth.monthIndex + 1;
     if (monthIndex === -1) {

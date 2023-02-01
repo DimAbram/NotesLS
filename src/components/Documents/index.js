@@ -1,3 +1,3 @@
 export { Documents } from './Documents';
-export { DocBY } from './DocBY';
+export { DocAllText } from './DocAllText';
 export { DocContent } from './DocContent';

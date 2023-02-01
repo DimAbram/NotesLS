@@ -1,43 +1,36 @@
 import React, { useEffect, useState } from 'react';
-import { Modal, Input } from '../../../UI';
+import { Modal, Input, CalendarPicker } from '../../../UI';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { addNote } from '../slice';
-import { CNI } from './CNI';
+import { addNote, getNotes } from '../../../redux/calendarNotesSlice';
+import { CalendarNoteItem } from './CalendarNoteItem';
 
 import st from './notes.module.scss';
+import { Skeleton } from '@mui/material';
 
 export const CalendarNotes = ({ selectedDate }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const notes = useSelector((state) => state.calendarNotes);
+  const status = useSelector((state) => state.calendarNotes.status);
+  const notes = useSelector((state) => state.calendarNotes.items);
   const dispatch = useDispatch();
 
   const [modalTitle, setModalTitle] = useState('');
-  const [modalYear, setModalYear] = useState('' + selectedDate.getFullYear());
-  const [modalMonth, setModalMonth] = useState(
-    '' + (+selectedDate.getMonth() + 1),
-  );
-  const [modalDate, setModalDate] = useState('' + selectedDate.getDate());
+
+  const [modalDate, setModalDate] = useState( selectedDate);
+
   const [modalCount, setModalCount] = useState('1');
   const [modalColor, setModalColor] = useState('#e65405');
 
   useEffect(() => {
-    setModalYear('' + selectedDate.getFullYear());
-    setModalMonth('' + (+selectedDate.getMonth() + 1));
-    setModalDate('' + selectedDate.getDate());
+    setModalDate(selectedDate);
   }, [selectedDate]);
 
-    useEffect(() => {
-      localStorage.setItem(
-        'calendarNotes',
-        JSON.stringify(notes),
-      );
-    }, [notes]);
+  useEffect(()=>{
+    dispatch(getNotes())
+  },[])
 
   const handleCancelModal = () => {
-    setModalYear('' + selectedDate.getFullYear());
-    setModalMonth('' + (+selectedDate.getMonth() + 1));
-    setModalDate('' + selectedDate.getDate());
+    setModalDate(modalDate);
     setModalColor('#e65405');
     setModalCount('1');
     setModalTitle('');
@@ -50,15 +43,13 @@ export const CalendarNotes = ({ selectedDate }) => {
         color: modalColor,
         count: +modalCount,
         date1: {
-          year: modalYear,
-          month: modalMonth,
-          date: modalDate,
+          year: modalDate.getFullYear(),
+          month: modalDate.getMonth() + 1,
+          date: modalDate.getDate(),
         },
       }),
     );
-    setModalYear(selectedDate.getFullYear());
-    setModalMonth(+selectedDate.getMonth() + 1);
-    setModalDate(selectedDate.getDate());
+    setModalDate(selectedDate);
     setModalCount('1');
     setModalTitle('');
     setModalColor('#e65405');
@@ -69,9 +60,13 @@ export const CalendarNotes = ({ selectedDate }) => {
       <h4>Заметки</h4>
       <div className={st.notes}>
         <div className={st.container}>
-          {notes.length > 0 &&
+          {status === 'loading' &&
+            Array.from({ length: 3 }).map((__, i) => (
+              <Skeleton variant="rounded" width={155} height={155} key={i} />
+            ))}
+          {status === 'loaded' &&
             notes.map((el) => {
-              return <CNI key={el.id} note={el} />;
+              return <CalendarNoteItem key={el.id} note={el} />;
             })}
           <div className={st.butadd} onClick={() => setIsVisible(true)}>
             <div>+ Добавить новую заметку</div>
@@ -91,7 +86,10 @@ export const CalendarNotes = ({ selectedDate }) => {
           onChange={(e) => setModalTitle(e.target.value)}
           title="Введить название"
         />
-        <div className={st.modal__date__label}>Выберете дату для заметки:</div>
+        <div className={st.modal__date__label}>
+          Выберете дату: <CalendarPicker date={modalDate} setDate={setModalDate}/>
+        </div>
+        {/* <div className={st.modal__date__label}>Выберете дату для заметки:</div>
         <div className={st.modal__date}>
           <Input
             className={st.modal__date__input}
@@ -111,7 +109,7 @@ export const CalendarNotes = ({ selectedDate }) => {
             onChange={(e) => setModalDate(e.target.value)}
             title="День"
           />
-        </div>
+        </div> */}
         <Input
           className={st.modal__date__input}
           value={modalCount}

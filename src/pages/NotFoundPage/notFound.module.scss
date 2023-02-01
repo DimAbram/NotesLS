@@ -1,0 +1,20 @@
+.container{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    & h3{
+        color: red;
+    }
+}
+.link{
+    text-decoration: none;
+    color: var(--text-color);
+    &:hover{
+        color: var(--color-additional);
+    }
+    &:active{
+        color: var(--color-additional7);
+    }
+}

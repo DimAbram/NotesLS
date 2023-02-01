@@ -4,7 +4,7 @@ import { createYear } from './createYear';
 import { getMonthNames } from './getMonthNames';
 import { getWeekDaysNames } from './getWeekDaysNames';
 import { getMonthNumberOfDays } from './getMonthNumberOfDays';
-import { checkDateIsEquel } from './checkDateIsEquel';
+import { checkDateIsEqual } from './checkDateIsEqual';
 import { checkIsToday } from './checkIsToday';
 import { formateDate } from './formateDate';
 import { checkInNotes } from './checkInNotes';
@@ -16,7 +16,7 @@ export {
   getMonthNames,
   getWeekDaysNames,
   getMonthNumberOfDays,
-  checkDateIsEquel,
+  checkDateIsEqual,
   checkIsToday,
   formateDate,
   checkInNotes,

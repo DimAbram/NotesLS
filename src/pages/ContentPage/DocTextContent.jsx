@@ -1,16 +1,17 @@
 import React, { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { boevoyUstav } from '../../static';
+import { documents } from '../../static';
 import { ContentItem } from './ContentItem';
 
 import st from './ContentBYPage.module.scss';
 import { nanoid } from 'nanoid';
 
-export const ContentBYPage = () => {
-  const { indexCapter, indexSection } = useParams();
+export const DocTextContent = () => {
+  const { id, indexChapter, indexSection } = useParams();
+  const docIndex = documents.findIndex((doc) => id === doc.id);
   let { title, content } =
-    boevoyUstav.capters[indexCapter].sections[indexSection];
+    documents[docIndex].chapters[indexChapter].sections[indexSection];
   const num = useMemo(() => title.match(/ГЛАВА \d+/)[0], [title]);
 
   title = title.replace(/ГЛАВА \d+/, '');

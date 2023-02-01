@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { addNote } from './slice';
+import { addNote } from '../../redux/notesSlice';
 import NoteItem from '../NoteItem';
 
 import st from './notes.module.scss';
